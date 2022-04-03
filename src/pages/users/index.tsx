@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Button, Icon, Table, Thead, Tr, Th, Checkbox, Tbody, Td, Text, useBreakpointValue } from '@chakra-ui/react'
+import Link from 'next/link'
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
 import { Header } from '../../components/Header'
 import { Pagination } from '../../components/Pagination'
@@ -20,15 +21,19 @@ export default function UserList() {
                     <Flex mb="8" justify="space-between" align="center">
                         <Heading size="lg" fontWeight="normal">Usuários</Heading>
 
-                        <Button
-                            as="a"
-                            size="sm"
-                            fontSize="sm"
-                            colorScheme="pink"
-                            leftIcon={<Icon as={RiAddLine} />}
-                        >
-                            Criar novo Usuario
-                        </Button>
+                        <Link href="/users/create" passHref>
+                            <Button
+                                as="a"
+                                size="sm"
+                                fontSize="sm"
+                                colorScheme="pink"
+                                leftIcon={<Icon as={RiAddLine} />}
+                            >
+                                Criar novo Usuario
+                            </Button>
+
+                        </Link>
+
 
                     </Flex>
 
@@ -39,7 +44,7 @@ export default function UserList() {
                                     <Checkbox colorScheme="pink" />
                                 </Th>
                                 <Th>Usuario</Th>
-                                { isWideVersion && <Th>Data de Cadastro</Th>}
+                                {isWideVersion && <Th>Data de Cadastro</Th>}
                                 <Th width="8"></Th>
                             </Tr>
                         </Thead>
@@ -54,7 +59,7 @@ export default function UserList() {
                                         <Text fontSize="sm" color="gray.300">email@teste.com</Text>
                                     </Box>
                                 </Td>
-                                { isWideVersion && <Td>04 de Maio de 2021</Td>}
+                                {isWideVersion && <Td>04 de Maio de 2021</Td>}
                                 <Td>
                                     <Button
                                         as="a"
@@ -63,7 +68,7 @@ export default function UserList() {
                                         colorScheme="purple"
                                         leftIcon={<Icon as={RiPencilLine} />}
                                     >
-                                        { isWideVersion ? 'Editar' : '' }
+                                        {isWideVersion ? 'Editar' : ''}
                                     </Button>
                                 </Td>
                             </Tr>
